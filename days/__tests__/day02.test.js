@@ -7,7 +7,7 @@ const {
   getMyChoice,
   day2,
   day22,
-} = require("../day2");
+} = require("../day02");
 
 describe("day 2 - let's play", () => {
   const possibilities = [

@@ -1,4 +1,4 @@
-const day1 = require("../day1");
+const day1 = require("../day01");
 
 describe("day 1", () => {
   const input = `1000

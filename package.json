@@ -4,8 +4,8 @@
   "description": "https://adventofcode.com/ ",
   "main": "index.js",
   "scripts": {
-    "process": "node index.js",
-    "test": "jest"
+    "start": "node index.js",
+    "test": "jest --coverage"
   },
   "jest": {
     "verbose": true,
