@@ -1,5 +1,5 @@
 [![Verify](https://github.com/bsvobodny/advent-of-code-2022/actions/workflows/verify.yml/badge.svg)](https://github.com/bsvobodny/advent-of-code-2022/actions/workflows/verify.yml)
-![Coverage](./badges/badges.svg)
+![Coverage](https://github.com/bsvobodny/advent-of-code-2022/blob/gh-pages/badges.svg)
 
 # 🎄 Advent of Code 2022
 
