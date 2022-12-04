@@ -4,6 +4,8 @@ const inputDay2 = require("./inputs/day02");
 const { day2, day22 } = require("./days/day02");
 const inputDay3 = require("./inputs/day03");
 const { day3 } = require("./days/day03");
+const inputDay4 = require("./inputs/day04");
+const { day4 } = require("./days/day04");
 
 const displayResult = (dayNumber, result, ...vars) => {
   console.group();
@@ -19,8 +21,8 @@ displayResult(1, day1(inputDay1));
 /** Day02 */
 displayResult(
   2,
-  `My score with originals rules : \t%d
-My Score with Elve's custom rules : \t%d`,
+  `My score with originals rules: \t%d
+My Score with Elve's custom rules: \t%d`,
   day2(inputDay2).me,
   day22(inputDay2).me
 );
@@ -28,9 +30,16 @@ My Score with Elve's custom rules : \t%d`,
 /** Day03 */
 displayResult(
   3,
-  `Sum of the priorities by Elves : \t%d
-Sum of the priorities Elves groups : \t%d`,
+  `Sum of the priorities by Elves: \t%d
+Sum of the priorities Elves groups: \t%d`,
   ...Object.values(day3(inputDay3))
+);
+
+displayResult(
+  4,
+  `Number of full overlap section: \t%d
+Number of partiel overlap section: \t%d`,
+  ...Object.values(day4(inputDay4))
 );
 
 /** Day04 */
