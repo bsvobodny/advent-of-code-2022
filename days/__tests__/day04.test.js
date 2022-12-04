@@ -49,4 +49,9 @@ describe("day 4", () => {
     expect(isNotOverlapping(assignments[5])).toEqual(false);
     expect(getAlmostOneOverlapCount(assignments)).toEqual(4);
   });
+
+  it("should return the day4 values", () => {
+    expect(day4(input).fullOverlapedSections).toEqual(2);
+    expect(day4(input).partialOverLap).toEqual(4);
+  });
 });
