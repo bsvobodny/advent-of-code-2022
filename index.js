@@ -48,7 +48,8 @@ Number of partiel overlap section: \t%d`,
 /** Day05 */
 displayResult(
   5,
-  `Message to the Elves: \t%s`,
+  `Message to the Elves Crate Mover 9000: \t%s
+  Message to the Elves Crate Mover 9001: \t%s`,
   ...Object.values(day5(inputDay5))
 );
 

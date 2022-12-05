@@ -1,8 +1,11 @@
-const INITAL_INDENT_LINE = 4;
 const day5 = (input) => {
-  const finalState = processMoves(getStacks(input), getMoves(input));
   return {
-    message: getMessage(finalState),
+    CM9000Message: getMessage(
+      processMoves(getStacks(input), getMoves(input), false)
+    ),
+    CM9001Message: getMessage(
+      processMoves(getStacks(input), getMoves(input), true)
+    ),
   };
 };
 
@@ -76,17 +79,22 @@ const getMoves = (input) => {
   return moves;
 };
 
-const applyMove = (stacks, move) => {
+const applyMove = (stacks, move, isCrateMover9001 = false) => {
   const newStacks = JSON.parse(JSON.stringify(stacks));
 
   const itemsToMove = newStacks[move.from - 1].slice(-1 * move.quantity);
-  newStacks[move.to - 1] = newStacks[move.to - 1].concat(itemsToMove.reverse());
+  newStacks[move.to - 1] = newStacks[move.to - 1].concat(
+    isCrateMover9001 ? itemsToMove : itemsToMove.reverse()
+  );
   newStacks[move.from - 1].splice(-1 * move.quantity, move.quantity);
   return newStacks;
 };
 
-const processMoves = (stacks, moves) =>
-  moves.reduce((finalStack, move) => applyMove(finalStack, move), stacks);
+const processMoves = (stacks, moves, isCrateMover9001 = false) =>
+  moves.reduce(
+    (finalStack, move) => applyMove(finalStack, move, isCrateMover9001),
+    stacks
+  );
 
 const getMessage = (stacks) => stacks.map((s) => s.slice(-1)).join("");
 
