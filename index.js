@@ -6,6 +6,8 @@ const inputDay3 = require("./inputs/day03");
 const { day3 } = require("./days/day03");
 const inputDay4 = require("./inputs/day04");
 const { day4 } = require("./days/day04");
+const inputDay5 = require("./inputs/day05");
+const { day5 } = require("./days/day05");
 
 const displayResult = (dayNumber, result, ...vars) => {
   console.group();
@@ -35,6 +37,7 @@ Sum of the priorities Elves groups: \t%d`,
   ...Object.values(day3(inputDay3))
 );
 
+/** Day04 */
 displayResult(
   4,
   `Number of full overlap section: \t%d
@@ -42,9 +45,12 @@ Number of partiel overlap section: \t%d`,
   ...Object.values(day4(inputDay4))
 );
 
-/** Day04 */
-
 /** Day05 */
+displayResult(
+  5,
+  `Message to the Elves: \t%s`,
+  ...Object.values(day5(inputDay5))
+);
 
 /** Day06 */
 
