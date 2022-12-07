@@ -54,6 +54,12 @@ displayResult(
 );
 
 /** Day06 */
+displayResult(
+  6,
+  `Packet marker position : \t%d
+  Message marker position : \t%d`,
+  ...Object.values(day6(inputDay6))
+);
 
 /** Day07 */
 
