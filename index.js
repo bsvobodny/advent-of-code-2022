@@ -8,6 +8,10 @@ const inputDay4 = require("./inputs/day04");
 const { day4 } = require("./days/day04");
 const inputDay5 = require("./inputs/day05");
 const { day5 } = require("./days/day05");
+const inputDay6 = require("./inputs/day06");
+const { day6 } = require("./days/day06");
+const inputDay7 = require("./inputs/day07");
+const { day7 } = require("./days/day07");
 
 const displayResult = (dayNumber, result, ...vars) => {
   console.group();
@@ -62,6 +66,13 @@ displayResult(
 );
 
 /** Day07 */
+displayResult(
+  7,
+  `Total size of folder less than 100K : \t%d
+  Folder size to delete to do the update : \t%d
+  `,
+  ...Object.values(day7(inputDay7))
+);
 
 /** Day08 */
 
