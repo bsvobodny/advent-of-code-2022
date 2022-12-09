@@ -12,6 +12,8 @@ const inputDay6 = require("./inputs/day06");
 const { day6 } = require("./days/day06");
 const inputDay7 = require("./inputs/day07");
 const { day7 } = require("./days/day07");
+const inputDay8 = require("./inputs/day08");
+const { day8 } = require("./days/day08");
 
 const displayResult = (dayNumber, result, ...vars) => {
   console.group();
@@ -75,6 +77,13 @@ displayResult(
 );
 
 /** Day08 */
+displayResult(
+  8,
+  `Visible trees from outside : \t%d
+  Highest Scenic score : \t%d
+  `,
+  ...Object.values(day8(inputDay8))
+);
 
 /** Day09 */
 
