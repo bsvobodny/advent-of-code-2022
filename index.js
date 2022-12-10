@@ -14,6 +14,8 @@ const inputDay7 = require("./inputs/day07");
 const { day7 } = require("./days/day07");
 const inputDay8 = require("./inputs/day08");
 const { day8 } = require("./days/day08");
+const { inputDay9, inputDay9_2 } = require("./inputs/day09");
+const { day9 } = require("./days/day09");
 
 const displayResult = (dayNumber, result, ...vars) => {
   console.group();
@@ -55,7 +57,7 @@ Number of partiel overlap section: \t%d`,
 displayResult(
   5,
   `Message to the Elves Crate Mover 9000: \t%s
-  Message to the Elves Crate Mover 9001: \t%s`,
+Message to the Elves Crate Mover 9001: \t%s`,
   ...Object.values(day5(inputDay5))
 );
 
@@ -63,7 +65,7 @@ displayResult(
 displayResult(
   6,
   `Packet marker position : \t%d
-  Message marker position : \t%d`,
+Message marker position : \t%d`,
   ...Object.values(day6(inputDay6))
 );
 
@@ -71,7 +73,7 @@ displayResult(
 displayResult(
   7,
   `Total size of folder less than 100K : \t%d
-  Folder size to delete to do the update : \t%d
+Folder size to delete to do the update : \t%d
   `,
   ...Object.values(day7(inputDay7))
 );
@@ -80,12 +82,19 @@ displayResult(
 displayResult(
   8,
   `Visible trees from outside : \t%d
-  Highest Scenic score : \t%d
+Highest Scenic score : \t%d
   `,
   ...Object.values(day8(inputDay8))
 );
 
 /** Day09 */
+displayResult(
+  9,
+  `Unique Tail position count with 2 knots : \t%d
+Unique Tail position count with 10 knots : \t%d
+  `,
+  ...Object.values(day9(inputDay9, inputDay9_2))
+);
 
 /** Day10 */
 
