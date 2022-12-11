@@ -16,6 +16,8 @@ const inputDay8 = require("./inputs/day08");
 const { day8 } = require("./days/day08");
 const { inputDay9, inputDay9_2 } = require("./inputs/day09");
 const { day9 } = require("./days/day09");
+const inputDay10 = require("./inputs/day10");
+const { day10 } = require("./days/day10");
 
 const displayResult = (dayNumber, result, ...vars) => {
   console.group();
@@ -97,6 +99,12 @@ Unique Tail position count with 10 knots : \t%d
 );
 
 /** Day10 */
+displayResult(
+  10,
+  `Total signal strength : \t%d
+    `,
+  ...Object.values(day10(inputDay10))
+);
 
 /** Day11 */
 
