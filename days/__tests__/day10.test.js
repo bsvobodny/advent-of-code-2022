@@ -161,10 +161,23 @@ describe("day 10", () => {
   });
 
   it(`should get instructions`, () => {
-    expect(runCPU(getInstructions(input))).toEqual(13140);
+    expect(runCPU(getInstructions(input)).totalSignalStrength).toEqual(13140);
   });
 
   it("should return total signal strength", () => {
-    expect(day10(input).totalSignalStrengh).toEqual(13140);
+    expect(day10(input).totalSignalStrength).toEqual(13140);
+  });
+
+  const crtDraw = `##..##..##..##..##..##..##..##..##..##..
+  ###...###...###...###...###...###...###.
+  ####....####....####....####....####....
+  #####.....#####.....#####.....#####.....
+  ######......######......######......####
+  #######.......#######.......#######.....`;
+
+  it("should get the crt display", () => {
+    expect(day10(input).crtDisplay).toEqual(
+      crtDraw.split("\n").map((l) => l.trim())
+    );
   });
 });

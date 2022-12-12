@@ -102,6 +102,7 @@ Unique Tail position count with 10 knots : \t%d
 displayResult(
   10,
   `Total signal strength : \t%d
+CRT Display : \n%s
     `,
   ...Object.values(day10(inputDay10))
 );

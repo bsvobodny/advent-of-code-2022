@@ -4,9 +4,7 @@ const INSTRUCTIONS_TYPE = {
 };
 
 const day10 = (input) => {
-  return {
-    totalSignalStrengh: runCPU(getInstructions(input)),
-  };
+  return runCPU(getInstructions(input));
 };
 
 const getInstructions = (input) => {
@@ -22,46 +20,62 @@ const getInstructions = (input) => {
 const runCPU = (instructions) => {
   let cycleCount = 0;
   let registry = 1;
-  let totalSignalStrengh = 0;
+  let totalSignalStrength = 0;
+  let crtDraw = [];
   instructions.forEach((instruction) => {
-    const { newCycleCount, newTotalSignalStrengh } = nextCycleCount(
+    crtDraw = drawCRT(crtDraw, cycleCount, registry);
+    const { newCycleCount, newTotalSignalStrength } = nextCycleCount(
       cycleCount,
       registry,
-      totalSignalStrengh
+      totalSignalStrength
     );
     cycleCount = newCycleCount;
-    totalSignalStrengh = newTotalSignalStrengh;
+    totalSignalStrength = newTotalSignalStrength;
 
     if (instruction[0] === INSTRUCTIONS_TYPE.ADDX) {
-      const { newCycleCount, newTotalSignalStrengh } = nextCycleCount(
+      crtDraw = drawCRT(crtDraw, cycleCount, registry);
+      const { newCycleCount, newTotalSignalStrength } = nextCycleCount(
         cycleCount,
         registry,
-        totalSignalStrengh
+        totalSignalStrength
       );
       cycleCount = newCycleCount;
-      totalSignalStrengh = newTotalSignalStrengh;
+      totalSignalStrength = newTotalSignalStrength;
 
       registry = registry + instruction[1];
     }
   });
 
-  //   console.log(signalStrenghTotal);
-  return totalSignalStrengh;
+  displayCRT(crtDraw);
+  return { totalSignalStrength, crtDisplay: displayCRT(crtDraw) };
 };
 
-const nextCycleCount = (cycleCount, registry, totalSignalStrengh) => {
-  const newCycleCount = cycleCount + 1;
-  let newTotalSignalStrengh = totalSignalStrengh;
-  if (newCycleCount % 40 === 20) {
-    newTotalSignalStrengh = newTotalSignalStrengh + registry * newCycleCount;
-    // console.log(
-    //   registry * newCycleCount,
-    //   totalSignalStrengh,
-    //   newTotalSignalStrengh
-    // );
+const drawCRT = (crtDraw, cycleCount, registry) => {
+  const rowIndex = Math.trunc(cycleCount / 40);
+  if (!crtDraw[rowIndex]) {
+    crtDraw[rowIndex] = [];
   }
-  //   console.log(newCycleCount, registry, newTotalSignalStrengh);
-  return { newCycleCount, newTotalSignalStrengh };
+  if (
+    registry - 1 === cycleCount % 40 ||
+    registry === cycleCount % 40 ||
+    registry + 1 === cycleCount % 40
+  ) {
+    crtDraw[rowIndex].push("#");
+  } else {
+    crtDraw[rowIndex].push(".");
+  }
+  return crtDraw;
+};
+
+const displayCRT = (crtDraw) => crtDraw.map((r) => r.join(""));
+
+const nextCycleCount = (cycleCount, registry, totalSignalStrength) => {
+  const newCycleCount = cycleCount + 1;
+  let newTotalSignalStrength = totalSignalStrength;
+  if (newCycleCount % 40 === 20) {
+    newTotalSignalStrength = newTotalSignalStrength + registry * newCycleCount;
+  }
+  return { newCycleCount, newTotalSignalStrength };
 };
 
 module.exports = { day10, getInstructions, runCPU };
