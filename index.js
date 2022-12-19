@@ -19,7 +19,7 @@ const { day9 } = require("./days/day09");
 const inputDay10 = require("./inputs/day10");
 const { day10 } = require("./days/day10");
 const inputDay11 = require("./inputs/day11");
-const { day11 } = require("./days/day11");
+const { day11, day112 } = require("./days/day11");
 
 const displayResult = (dayNumber, result, ...vars) => {
   console.group();
@@ -112,9 +112,13 @@ CRT Display : \n%s
 /** Day11 */
 displayResult(
   11,
-  `Monkey business : \t%d
+  `Monkey business 20 round : \t%d
+Monkey business 10 000 : \t%d
     `,
-  ...Object.values(day11(inputDay11))
+  ...Object.values({
+    ...day11(inputDay11),
+    ...day112(inputDay11),
+  })
 );
 
 /** Day12 */
